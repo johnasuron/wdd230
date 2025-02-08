@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 230 - Web Frontend Development</title>
+    <meta name="description"
+        content="WDD 230 - Web Frontend Development course assignment portal by John Lobuin Asuron">
+    <meta name="author" content="John Lobuin Asuron">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="WDD 230 - Web Frontend Development">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://johnlobuin.github.io/wdd230/lodwar.jpg">
+    <meta property="og:url" content="https://johnlobuin.github.io/wdd230/index.html">
+    <meta property="og:description"
+        content="WDD 230 - Web Frontend Development course assignment portal by John Lobuin Asuron">
+
+    <!-- Favicon -->
+    <link rel="icon" href="pictures/favicon.icon" type="image/x-icon">
+
+    <!-- CSS Normalization -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/html.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="pictures/john.jpg" alt="John Lobuin Asuron Profile">
+            <h1>John Lobuin Asuron<br><span class="course-title">WDD 230 - Web Frontend Development</span></h1>
+            <!-- Dark Mode Toggle Button -->
+            <button id="darkModeToggle">🌙 Dark Mode</button>
+        </div>
+        <!-- Hamburger Menu Button -->
+        <button id="menuToggle" aria-label="Toggle Menu">&#9776;</button>
+        <!-- Navigation Menu -->
+        <nav id="navMenu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="chamber/chamber.html">Chamber</a></li>
+                <li><a href="chamber-site-plan.html" target="_blank">Site Plan</a></li>
+                <li><a href="chamber/forms.html">Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Temple Image Section -->
+    <div class="temple-image-container">
+        <picture>
+            <source srcset="pictures/temple-mobile.jpg" media="(max-width: 400px)">
+            <source srcset="pictures/temple-desktop.jpg" media="(min-width: 401px)">
+            <img src="pictures/temple.webp" alt="Temple" class="temple-image" loading="lazy">
+        </picture>
+        <div class="image-overlay">Rome Italy Temple</div>
+    </div>
+
+    <main>
+        <section>
+            <h2>WDD 230: Web Frontend Development</h2>
+        </section>
+        <section class="content-container">
+            <div class="learning-activities-box">
+                <h3>Learning Activities</h3>
+                <p>Week 01: <a href="#">Layout</a> | <a href="#">Media Query</a> | <a href="#">JS Pen</a></p>
+                <p>Week 02: <a href="index/design.html" target="_blank">CodePen</a> | <a
+                        href="https://johnasuron.github.io/wdd230-week2/" target="_blank">Book of Mormon</a></p>
+                <p>Week 03: <a href="pictures/landscape.webp" target="_blank">WebP</a> | <a
+                        href="https://johnasuron.github.io/lazyload/" target="_blank">Lazy Load</a> | <a
+                        href="https://johnasuron.github.io/Responsive-Images/" target="_blank">Responsive Images</a></p>
+                <p>Week 04: <a href="pseudo.html" target="_blank">Pseudo-classes</a>| <a
+                        href="pictures/combinator exercises.jpg" target="_blank">Combinator Exercises</a> | <a
+                        href="table.html" target="_blank">Table Build</a>| <a href="course.html" target="_blank">Html
+                        Form</a></p>
+                <p>Week 05:<a href="Pseudo-element.html" target="_blank">Pseudo-element</a>| <a
+                        href="week05/new-ward-members.json" target="_blank">json File</a>| <a
+                        href="week05/prophets.html" target="_blank">The Fetch API</a>| <a href="week05/weather.html"
+                        target="_blank">Weather API</a></p>
+                <p>Week 06:</p>
+            </div>
+            <div class="information-box">
+                <h3>Information</h3>
+                <p>Lodwar, Kenya</p>
+                <div id="weather-info">
+                    <p>Loading weather...</p>
+                </div>
+                <p>Page Visits: <span id="visitCount">0</span></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Google Map Section -->
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63742.89090163841!2d35.59033061079101!3d3.1130426956258215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x179ea22511a3db63%3A0x9cd2c16552676ed!2sLodwar!5e0!3m2!1sen!2ske!4v1737600749897!5m2!1sen!2ske"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <footer>
+        <p><span id="copyrightYear"></span> 🌸 John Lobuin Asuron 🌸 Kenya</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+        <img src="pictures/kenya.png" alt="Kenya Flag">
+    </footer>
+
+    <script src="scripts/getDates.js"></script>
+    <script src="scripts/weather.js"></script>
+    <script>
+        // JavaScript for Hamburger Menu and Dark Mode Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu').querySelector('ul');
+            const darkModeToggle = document.getElementById('darkModeToggle');
+
+            // Hamburger Menu Toggle
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Dark Mode Toggle
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+            });
+        });
+
+        // Page Visit Counter
+        document.addEventListener('DOMContentLoaded', function () {
+            let visitCount = localStorage.getItem('visitCount') || 0;
+            visitCount = parseInt(visitCount) + 1;
+            localStorage.setItem('visitCount', visitCount);
+            document.getElementById('visitCount').textContent = visitCount;
+        });
+    </script>
+</body>
+
+</html>
